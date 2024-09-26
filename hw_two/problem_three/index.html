@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="utf-8">
+        <title>ASCII Art</title>
+
+        <link rel="stylesheet" href="styles.css">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
+    
+    </head>
+
+    <body>
+        
+        <h1>ASCII Art:</h1>
+
+        <p>Determine the size of the rounded rectangle.</p>
+        <p class="description">** Odd number, greater than or equal to 5. **</p>
+        
+        <form method="post" action="grid.php">
+            <p>Size: <input type="number" name="size" step="2" size="5" min="5" value="5" required></p>
+            <input type="submit" name="submit" value="Generate">
+        </form>
+
+    </body>
+</html>

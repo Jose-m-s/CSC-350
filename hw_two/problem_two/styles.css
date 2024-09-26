@@ -1,0 +1,23 @@
+body {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+input[type='number'] {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+input[type='submit'] {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+select {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+  
+input:invalid {
+    border: solid red 2px;
+}

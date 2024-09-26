@@ -1,0 +1,35 @@
+
+
+body {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+input[type='number'] {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+input[type='submit'] {
+    font-family: "Noto Sans Math", sans-serif;
+    font-style: normal;
+}
+
+.description {
+    font-style: italic;
+    font-size: small;
+}
+
+table, tr, td {
+    border: none;
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+input:invalid {
+    border: solid red 2px;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    
+    <meta charset="utf-8">
+    <title>Calculator</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <h1>Simple PEDMAS Calculator</h1>
+
+    <form method="post" action="arithmetic.php">
+
+    <!-- Input One -->
+    <!-- Setting step to "any" makes floats vaild for inputs.-->
+    <input type="number" name="input_one" step="any" size="5" value="0" required>
+
+    <!-- Operator One -->
+    <select name="operator_one">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <!-- Input Two -->
+    <input type="number" name="input_two" step="any" size="5" value="0" required>
+
+    <!-- Operator Two -->
+    <select name="operator_two">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+
+    <!-- Input Three -->
+    <input type="number" name="input_three" step="any" size="5" value="0" required>
+    
+    <input type="submit" name="submit" value="Calculate value">
+
+    </form>
+
+</body>
+
+</html>
