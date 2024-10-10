@@ -5,7 +5,6 @@
     </head>
     <body>
     <?php
-
     session_start();
 
     $_SESSION["turn"] = 1;
@@ -22,25 +21,19 @@
         9 => "X"
     ];
 
+    $_SESSION["moves"] = $list;
     $grid = [];
 
-    $_SESSION["moves"] = $list;
+    for ($y = 1; $y <= 3; $y++) {
 
-    for ($j = 1; $j <= 3; $j++) {
-
-        for ($i = 1; $i <= 3; $i++) {
-
-            $position = $j . '_' . $i;
-
+        for ($x = 1; $x <= 3; $x++) {
+            $position = $y . '_' . $x;
             if (!isset($grid[$position])){
                 $grid[$position] = '';
             }
-
             if(isset($_POST[$position])) {
-
                 $result = $list[$_SESSION["turn"]];
                 $grid[$position] = $result;
-
             }
         }
     }
@@ -54,27 +47,22 @@
     print "<form method='post' action='turn_two.php'>";
         print "<table>";
 
-            for ($j = 1; $j <= 3; $j++ ) {
-
+            for ($y = 1; $y <= 3; $y++ ) {
                 print "<tr>";
-                
-                for ($i = 1; $i <= 3; $i++) {
-
-                    $position = $j . '_' . $i;
-
+                for ($x = 1; $x <= 3; $x++) {
+                    $position = $y . '_' . $x;
+                    print "<td>";
                     if ($grid[$position]=='X'){
-                        print "<td> <input type='submit' name='$position' value='$grid[$position]' disabled /> </td>";
+                        print "<input type='submit' name='$position' value='$grid[$position]' disabled />";
                     } else {
-                        print "<td> <input type='submit' name='$position' value='$grid[$position]'/> </td>";
+                        print "<input type='submit' name='$position' value='$grid[$position]'/>";
                     }
-                    
+                    print "</td>";
                 }
-
                 print "</tr>";
             }
         print "</table>";
     print "</form>";
-
     ?>
     </body>
 </html>

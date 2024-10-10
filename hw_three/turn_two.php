@@ -5,14 +5,13 @@
     </head>
     <body>
     <?php
-    
     session_start();
 
     include 'Guide/tic-tac-toe-functions.php';
 
-    for ($j = 1; $j <= 3; $j++) {
-        for ($i = 1; $i <= 3; $i++) {
-            $position = $j . '_' . $i;
+    for ($y = 1; $y <= 3; $y++) {
+        for ($x = 1; $x <= 3; $x++) {
+            $position = $y . '_' . $x;
             if(isset($_POST[$position])) {
                 $result = $_SESSION["moves"][$_SESSION["turn"]];
                 $_SESSION["game"][$position] = $result;
@@ -50,32 +49,27 @@
 
     print "<form method='post' action=''>";
         print "<table>";
-
-            for ($j = 1; $j <= 3; $j++ ) {
-
+            for ($y = 1; $y <= 3; $y++ ) {
                 print "<tr>";
-                
-                for ($i = 1; $i <= 3; $i++) {
-
-                    $position = $j . '_' . $i;
+                for ($x = 1; $x <= 3; $x++) {
+                    $position = $y . '_' . $x;
                     $location = $_SESSION["game"][$position];
-
+                    print "<td>";
                     if (!empty($location) || !empty($check)) {
-                        print "<td> <input type='submit' name='$position' value='$location' "; 
+                        print "<input type='submit' name='$position' value='$location' "; 
                         if (!empty($check)) {
                             print "style = 'background-color: white;'";
                         }
-                        print " disabled /> </td>";
+                        print " disabled />";
                     } else {
-                        print "<td> <input type='submit' name='$position' value='$location'/> </td>";
+                        print "<input type='submit' name='$position' value='$location'/>";
                     }
-                    
+                    print "</td>";
                 }
                 print "</tr>";
             }
         print "</table>";
     print "</form>";
-
     ?>
     </body>
 </html>
