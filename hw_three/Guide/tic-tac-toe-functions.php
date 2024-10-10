@@ -1,4 +1,5 @@
 <?php
+
 /*
 This function checks the session to see if there are any winners of the game.
 It checks the 8 possible combinations to see if one of the players has won.
@@ -16,33 +17,51 @@ The board will look like this:
 '1-2'  '2-2'  '3-2'
 '1-3'  '2-3'  '3-3'
 */
-function whoIsWinner() {
 
-    // 1 of 8: top row
-    $winner = checkWhoHasTheSeries(['1-1', '2-1', '3-1']);
-    if ($winner != null) return $winner;
-    // 2 of 8: middle row
-    $winner = checkWhoHasTheSeries(['1-2', '2-2', '3-2']);
-    if ($winner != null) return $winner;
-    // 3 of 8: bottom row
-    $winner = checkWhoHasTheSeries(['1-3', '2-3', '3-3']);
-    if ($winner != null) return $winner;
-    // 4 of 8: left column
-    $winner = checkWhoHasTheSeries(['1-1', '1-2', '1-3']);
-    if ($winner != null) return $winner;
-    // 5 of 8: middle column
-    $winner = checkWhoHasTheSeries(['2-1', '2-2', '2-3']);
-    if ($winner != null) return $winner;
-    // 6 of 8: right column
-    $winner = checkWhoHasTheSeries(['3-1', '3-2', '3-3']);
-    if ($winner != null) return $winner;
-    // 7 of 8: diagonal left to right
-    $winner = checkWhoHasTheSeries(['1-1', '2-2', '3-3']);
-    if ($winner != null) return $winner;
-    // 8 of 8: diagonal right to left
-    $winner = checkWhoHasTheSeries(['3-1', '2-2', '1-3']);
-    if ($winner != null) return $winner;
-    return null; // Its a draw
+
+function whoIsWinner($a, $b, $c, $d, $e, $f, $g, $h, $i) {
+
+    if (isset($a) && isset($d) && isset($g)) {
+        $winner = checkWhoHasTheSeries([$a, $d, $g]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($b) && isset($e) && isset($h)) {
+        $winner = checkWhoHasTheSeries([$b, $e, $h]);
+        if ($winner != null) return $winner;
+    }
+
+    if (isset($c) && isset($f) && isset($i)) {
+        $winner = checkWhoHasTheSeries([$c, $f, $i]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($a) && isset($b) && isset($c)) {
+        $winner = checkWhoHasTheSeries([$a, $b, $c]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($d) && isset($e) && isset($f)) {
+        $winner = checkWhoHasTheSeries([$d, $e, $f]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($g) && isset($h) && isset($i)) {
+        $winner = checkWhoHasTheSeries([$g, $h, $i]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($a) && isset($e) && isset($i)) {
+        $winner = checkWhoHasTheSeries([$a, $e, $i]);
+        if ($winner != null) return $winner;
+    }
+    
+    if (isset($g) && isset($e) && isset($c)) {
+        $winner = checkWhoHasTheSeries([$g, $e, $c]);
+        if ($winner != null) return $winner;
+    }
+    
+    return null;
 
 }
 
@@ -53,14 +72,15 @@ It returns:
   An 'O' if all 3 items in the list are 'O'
   A null otherwise (i.e. there is no winner for thie combination)
 */
+
 function checkWhoHasTheSeries($list) {
 
     $XCount = 0;
     $OCount = 0;
     foreach ($list as $value) {
-        if ($_SESSION[$value] == 'X') {
+        if ($value == 'X') {
             $XCount++;
-        } elseif ($_SESSION[$value] == 'O') {
+        } elseif ($value == 'O') {
             $OCount++;
         }
     }
@@ -72,4 +92,5 @@ function checkWhoHasTheSeries($list) {
         return null;
 
 }
+
 ?>
