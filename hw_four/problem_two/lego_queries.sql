@@ -1,7 +1,10 @@
 -- 1. Find sets that have a word or phrase in their description
+SELECT * FROM products
+WHERE htmlDescription LIKE '%build%';
+/* % used as a wildcard to represent any sequence of characters will match any value that contains the word
+% before and after makes sure that the mentioned word can occur at any position */
 
 -- 2. Sort by sets with the highest piece count
-
 -- Sort sets in details table by highest piece count
 SELECT * FROM details 
 ORDER BY pieces DESC;
@@ -13,11 +16,11 @@ INNER JOIN products ON details.itemNumber = products.itemNumber
 ORDER BY details.pieces DESC;
 
 -- 3. Show only sets that belong to a specific theme
--- In groups table displays sets with a sub theme of Sports
+-- Displays sets with a sub theme of Sports
 SELECT * FROM groups
 WHERE productSubTheme = 'Sports';
 
--- Inner Join with products table to display set's name
+-- Displays sets along with productName that have a sub theme of Sports
 SELECT products.productName, groups.itemNumber, groups.productSubTheme
 FROM groups
 INNER JOIN products ON groups.itemNumber = products.itemNumber
