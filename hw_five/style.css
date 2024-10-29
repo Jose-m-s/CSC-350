@@ -1,0 +1,40 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+}
+a, a:visited {
+    text-decoration: none;
+    color: #afafaf;
+}
+a:hover {
+    font-weight: bold !important;
+    color:#4f4f4f !important;
+}
+.description {
+    max-width: 500px;
+}
+.links {
+    border-top: 1px solid #9f9f9f;
+}
+.right_border {
+    padding-right: 5px;
+    border-right: solid 1px #9f9f9f;
+}
+.top {
+    border-bottom: solid 1px #9f9f9f;
+}
+table {
+    border-spacing: 5px;
+    table-layout: fixed;
+}
+th:nth-child(odd) {
+    background-color: #156082 !important;
+    color: white;
+}
+tr {
+    text-align: center;
+}
+input[type=submit] {
+    font-family: "Montserrat", sans-serif;
+    font-style: bold;
+}
